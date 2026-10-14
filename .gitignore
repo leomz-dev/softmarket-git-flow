@@ -1,0 +1,19 @@
+# Entorno virtual de Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Pruebas y cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Entorno local y editores
+.env
+.idea/
+.vscode/
+
+# Base de datos local de desarrollo
+*.db
+*.sqlite3
