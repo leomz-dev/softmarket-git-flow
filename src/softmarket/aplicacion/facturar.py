@@ -1,7 +1,9 @@
 """Caso de uso: emitir una factura."""
 from dataclasses import dataclass
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal
 from typing import Protocol
+
+DOS_DECIMALES = Decimal("0.01")
 
 
 class CalculadoraImpuesto(Protocol):
@@ -18,7 +20,7 @@ class IvaColombia:
     TARIFA = Decimal("0.19")
 
     def calcular(self, base: Decimal) -> Decimal:
-        return base * self.TARIFA
+        return (base * self.TARIFA).quantize(DOS_DECIMALES, rounding=ROUND_HALF_UP)
 
 
 class IvaExento:
