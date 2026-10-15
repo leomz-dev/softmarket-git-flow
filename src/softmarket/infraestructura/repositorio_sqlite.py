@@ -21,12 +21,13 @@ class RepositorioClientesSqlite:
         self._conexion.execute(ESQUEMA)
 
     def guardar(self, cliente: Cliente) -> None:
-        """Inserta el cliente en la base de datos."""
+        """Inserta el cliente y confirma la transacción."""
         cursor = self._conexion.cursor()
         cursor.execute(
             "INSERT INTO clientes (nombre, email, tipo, saldo) VALUES (?, ?, ?, ?)",
             (cliente.nombre, cliente.email, cliente.tipo.value, cliente.saldo),
         )
+        self._conexion.commit()
 
     def buscar(self, email: str) -> Cliente | None:
         """Recupera un cliente por su correo electrónico."""
