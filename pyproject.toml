@@ -1,6 +1,6 @@
 [project]
 name = "softmarket"
-version = "0.1.0"
+version = "1.0.0"
 description = "Núcleo de gestión de clientes y facturación de SoftMarket"
 requires-python = ">=3.11"
 dependencies = []
